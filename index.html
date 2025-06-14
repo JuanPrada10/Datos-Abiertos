@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Datos Abiertos</title>
      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-     <script src="Controller.js"></script>
      <link
       rel="stylesheet"
       as="style"
@@ -14,13 +13,13 @@
     />
   </head>
   </head>
-  <body class="bg-gray-700"  style='font-family: Lexend, "Noto Sans", sans-serif;'>
+  <body class="bg-gray-700 "  style='font-family: Lexend, "Noto Sans", sans-serif;'>
     <header class="flex items-center justify-between  py-2 bg-indigo-600 w-full h-16 px-24">
         <h1 class="text-white font-bold text-3xl">Datos Abiertos</h1>
         <label for="Search"  >
         <span class="text-sm font-medium text-gray-700 dark:text-gray-200"> Buscar </span>
 
-    <div class="relative">
+    <div class="relative ">
         <input
         type="text"
         id="Search"
@@ -52,15 +51,15 @@
     </div>
 </label>
     </header>
-    <div class="overflow-x-auto mt-5 px-20 min-h-screen w-full  ">
+    <div class=" mt-5 px-20 h-3/5 w-full  ">
   <table class="min-w-full divide-y-2 divide-gray-200 dark:divide-gray-700 bg-gray-900 shadow-lg ">
     <thead class="ltr:text-left rtl:text-right bg-indigo-600 ">
       <tr class="*:font-medium *:text-gray-900 dark:*:text-white">
-        <th class="px-3 py-2 whitespace-nowrap ">Region</th>
-        <th class="px-3 py-2 whitespace-nowrap ">Codigo Departamento</th>
-        <th class="px-3 py-2 whitespace-nowrap ">Departamento</th>
-        <th class="px-3 py-2 whitespace-nowrap ">Codigo Municipio</th>
-        <th class="px-3 py-2 whitespace-nowrap ">Municipio</th>
+        <th class="px-3 py-2 whitespace-nowrap text-center">Region</th>
+        <th class="px-3 py-2 whitespace-nowrap text-center">Codigo Departamento</th>
+        <th class="px-3 py-2 whitespace-nowrap text-center">Departamento</th>
+        <th class="px-3 py-2 whitespace-nowrap text-center">Codigo Municipio</th>
+        <th class="px-3 py-2 whitespace-nowrap text-center">Municipio</th>
        
       </tr>
     </thead>
@@ -72,12 +71,12 @@
       
     </tbody>
   </table>
-    <div class="mt-6">
-        <ul class="flex justify-center gap-1 text-gray-900 dark:text-white">
+    <div class="mt-6 ">
+        <ul class="flex justify-center gap-1 text-gray-900 dark:text-white  ">
   <li>
-    <a
-      href="#"
-      class="grid size-8 place-content-center rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 dark:border-gray-700 dark:hover:bg-gray-800"
+    <button
+      id="prev"
+      class="grid size-8 place-content-center rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 dark:border-gray-700 dark:hover:bg-indigo-600"
       aria-label="Previous page"
     >
       <svg
@@ -92,46 +91,23 @@
           clip-rule="evenodd"
         />
       </svg>
-    </a>
+    </button>
   </li>
-
   <li>
     <a
       href="#"
-      class="block size-8 rounded border border-gray-200 text-center text-sm/8 font-medium transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
+      id="currentPage"
+      class="block size-8 rounded border border-gray-200 text-center text-sm/8 font-medium transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-indigo-600"
     >
-      1
-    </a>
-  </li>
-
-  <li
-    class="block size-8 rounded border border-indigo-600 bg-indigo-600 text-center text-sm/8 font-medium text-white"
-  >
-    2
-  </li>
-
-  <li>
-    <a
-      href="#"
-      class="block size-8 rounded border border-gray-200 text-center text-sm/8 font-medium transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
-    >
-      3
+      
     </a>
   </li>
 
   <li>
-    <a
+    <button
       href="#"
-      class="block size-8 rounded border border-gray-200 text-center text-sm/8 font-medium transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
-    >
-      4
-    </a>
-  </li>
-
-  <li>
-    <a
-      href="#"
-      class="grid size-8 place-content-center rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 dark:border-gray-700 dark:hover:bg-gray-800"
+      id="next"
+      class="grid size-8 place-content-center rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 dark:border-gray-700 dark:hover:bg-indigo-600"
       aria-label="Next page"
     >
       <svg
@@ -146,11 +122,12 @@
           clip-rule="evenodd"
         />
       </svg>
-    </a>
+    </button>
   </li>
 </ul>
     </div>
 </div>
-  
+  <script src="Controller.js"></script>
   </body>
+  
 </html>
