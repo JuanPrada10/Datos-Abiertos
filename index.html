@@ -12,35 +12,67 @@
       href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
     />
   </head>
-  <body class="bg-gray-700" style='font-family: Lexend, "Noto Sans", sans-serif;'>
-    <header class="flex items-center justify-between py-2 bg-indigo-600 w-full h-16 px-24">
+  <body
+    class="bg-gray-700"
+    style="font-family: Lexend, 'Noto Sans', sans-serif"
+  >
+    <header
+      class="flex items-center justify-between py-2 bg-indigo-600 w-full h-16 px-24"
+    >
       <h1 class="text-white font-bold text-3xl">Datos Abiertos</h1>
-      <div class="mt-2 w-1/3">
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Buscar por municipio o departamento"
-    class="w-full rounded border border-gray-300 px-4 py-2 shadow-sm dark:border-gray-600 dark:bg-gray-900 dark:text-white"
-  />
-</div>
+      <div class="mt-4 flex flex-wrap gap-4">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Buscar por municipio o departamento"
+          class="flex-1 min-w-[200px] rounded border border-gray-300 px-4 py-2 shadow-sm dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+        />
 
+        <select
+          id="departmentSelect"
+          class="min-w-[200px] rounded border border-gray-300 px-4 py-2 shadow-sm dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+        >
+          <option value="">-- Filtrar por departamento --</option>
+        </select>
+
+        <select
+          id="regionSelect"
+          class="min-w-[200px] rounded border border-gray-300 px-4 py-2 shadow-sm dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+        >
+          <option value="">-- Filtrar por región --</option>
+        </select>
+
+        <button
+          id="clearFilters"
+          class="rounded bg-red-600 px-4 py-2 text-white hover:bg-red-700 transition"
+        >
+          Limpiar filtros
+        </button>
+      </div>
     </header>
     <div class="mt-5 px-20 h-3/5 w-full">
-      <table class="min-w-full divide-y-2 divide-gray-200 dark:divide-gray-700 bg-gray-900 shadow-lg">
+      <table
+        class="min-w-full divide-y-2 divide-gray-200 dark:divide-gray-700 bg-gray-900 shadow-lg"
+      >
         <thead class="ltr:text-left rtl:text-right bg-indigo-600">
           <tr class="*:font-medium *:text-gray-900 dark:*:text-white">
             <th class="px-3 py-2 whitespace-nowrap text-center">Región</th>
-            <th class="px-3 py-2 whitespace-nowrap text-center">Código Departamento</th>
-            <th class="px-3 py-2 whitespace-nowrap text-center">Departamento</th>
-            <th class="px-3 py-2 whitespace-nowrap text-center">Código Municipio</th>
+            <th class="px-3 py-2 whitespace-nowrap text-center">
+              Código Departamento
+            </th>
+            <th class="px-3 py-2 whitespace-nowrap text-center">
+              Departamento
+            </th>
+            <th class="px-3 py-2 whitespace-nowrap text-center">
+              Código Municipio
+            </th>
             <th class="px-3 py-2 whitespace-nowrap text-center">Municipio</th>
           </tr>
         </thead>
         <tbody
           class="divide-y divide-gray-200 *:even:bg-gray-50 dark:divide-gray-700 dark:*:even:bg-gray-800"
           id="contenido"
-        >
-        </tbody>
+        ></tbody>
       </table>
       <div class="mt-6">
         <ul class="flex justify-center gap-1 text-gray-900 dark:text-white">
