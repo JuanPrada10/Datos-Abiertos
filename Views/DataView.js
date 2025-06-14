@@ -34,6 +34,19 @@ class DataView {
     this.nextButton.disabled = !hasNextPage;
     this.pageInfo.textContent = currentPage;
   }
+
+  showError(message) {
+  this.tableBody.innerHTML = `
+    <tr>
+      <td colspan="5" class="text-center text-red-500 py-4">${message}</td>
+    </tr>
+  `;
+  }
+  updatePaginationControls(currentPage, hasNextPage) {
+    this.prevButton.disabled = currentPage === 1;
+    this.nextButton.disabled = !hasNextPage;
+    this.pageInfo.textContent = currentPage;
+  }
 }
 
 export default DataView;
