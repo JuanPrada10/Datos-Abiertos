@@ -1,133 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Datos Abiertos</title>
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-     <link
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
       rel="stylesheet"
       as="style"
       onload="this.rel='stylesheet'"
       href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
     />
   </head>
-  </head>
-  <body class="bg-gray-700 "  style='font-family: Lexend, "Noto Sans", sans-serif;'>
-    <header class="flex items-center justify-between  py-2 bg-indigo-600 w-full h-16 px-24">
-        <h1 class="text-white font-bold text-3xl">Datos Abiertos</h1>
-        <label for="Search"  >
-        <span class="text-sm font-medium text-gray-700 dark:text-gray-200"> Buscar </span>
-
-    <div class="relative ">
-        <input
-        type="text"
-        id="Search"
-        class="mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm dark:border-gray-600 dark:bg-gray-900 dark:text-white"
-        />
-
-        <span class="absolute inset-y-0 right-2 grid w-8 place-content-center">
-        <button
-            type="button"
-            aria-label="Submit"
-            class="rounded-full p-1.5 text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800"
-        >
-            <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-4"
-            >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-            />
-            </svg>
-        </button>
-        </span>
-    </div>
-</label>
+  <body class="bg-gray-700" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+    <header class="flex items-center justify-between py-2 bg-indigo-600 w-full h-16 px-24">
+      <h1 class="text-white font-bold text-3xl">Datos Abiertos</h1>
     </header>
-    <div class=" mt-5 px-20 h-3/5 w-full  ">
-  <table class="min-w-full divide-y-2 divide-gray-200 dark:divide-gray-700 bg-gray-900 shadow-lg ">
-    <thead class="ltr:text-left rtl:text-right bg-indigo-600 ">
-      <tr class="*:font-medium *:text-gray-900 dark:*:text-white">
-        <th class="px-3 py-2 whitespace-nowrap text-center">Region</th>
-        <th class="px-3 py-2 whitespace-nowrap text-center">Codigo Departamento</th>
-        <th class="px-3 py-2 whitespace-nowrap text-center">Departamento</th>
-        <th class="px-3 py-2 whitespace-nowrap text-center">Codigo Municipio</th>
-        <th class="px-3 py-2 whitespace-nowrap text-center">Municipio</th>
-       
-      </tr>
-    </thead>
-
-    <tbody
-      class="divide-y divide-gray-200 *:even:bg-gray-50 dark:divide-gray-700 dark:*:even:bg-gray-800"
-      id="contenido"
-    >
-      
-    </tbody>
-  </table>
-    <div class="mt-6 ">
-        <ul class="flex justify-center gap-1 text-gray-900 dark:text-white  ">
-  <li>
-    <button
-      id="prev"
-      class="grid size-8 place-content-center rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 dark:border-gray-700 dark:hover:bg-indigo-600"
-      aria-label="Previous page"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="size-4"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-          clip-rule="evenodd"
-        />
-      </svg>
-    </button>
-  </li>
-  <li>
-    <a
-      href="#"
-      id="currentPage"
-      class="block size-8 rounded border border-gray-200 text-center text-sm/8 font-medium transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-indigo-600"
-    >
-      
-    </a>
-  </li>
-
-  <li>
-    <button
-      href="#"
-      id="next"
-      class="grid size-8 place-content-center rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 dark:border-gray-700 dark:hover:bg-indigo-600"
-      aria-label="Next page"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="size-4"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-          clip-rule="evenodd"
-        />
-      </svg>
-    </button>
-  </li>
-</ul>
+    <div class="mt-5 px-20 h-3/5 w-full">
+      <table class="min-w-full divide-y-2 divide-gray-200 dark:divide-gray-700 bg-gray-900 shadow-lg">
+        <thead class="ltr:text-left rtl:text-right bg-indigo-600">
+          <tr class="*:font-medium *:text-gray-900 dark:*:text-white">
+            <th class="px-3 py-2 whitespace-nowrap text-center">Región</th>
+            <th class="px-3 py-2 whitespace-nowrap text-center">Código Departamento</th>
+            <th class="px-3 py-2 whitespace-nowrap text-center">Departamento</th>
+            <th class="px-3 py-2 whitespace-nowrap text-center">Código Municipio</th>
+            <th class="px-3 py-2 whitespace-nowrap text-center">Municipio</th>
+          </tr>
+        </thead>
+        <tbody
+          class="divide-y divide-gray-200 *:even:bg-gray-50 dark:divide-gray-700 dark:*:even:bg-gray-800"
+          id="contenido"
+        >
+        </tbody>
+      </table>
+      <div class="mt-6">
+        <ul class="flex justify-center gap-1 text-gray-900 dark:text-white">
+          <li>
+            <button
+              id="prev"
+              class="grid size-8 place-content-center rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 dark:border-gray-700 dark:hover:bg-indigo-600"
+              aria-label="Previous page"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-4"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </li>
+          <li>
+            <a
+              href="#"
+              id="currentPage"
+              class="block size-8 rounded border border-gray-200 text-center text-sm/8 font-medium transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-indigo-600"
+            >
+            </a>
+          </li>
+          <li>
+            <button
+              id="next"
+              class="grid size-8 place-content-center rounded border border-gray-200 transition-colors hover:bg-gray-50 rtl:rotate-180 dark:border-gray-700 dark:hover:bg-indigo-600"
+              aria-label="Next page"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="size-4"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
-</div>
-  <script src="Controller.js"></script>
+    <script type="module" src="Controllers/DataController.js"></script>
   </body>
-  
 </html>
