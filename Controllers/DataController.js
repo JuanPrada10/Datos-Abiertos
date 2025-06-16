@@ -6,7 +6,7 @@ class DataController {
     this.model = new DataModel();
     this.view = new DataView();
 
-    this.searchTerm = "";
+    this.selectedMunicipio = "";
     this.selectedDepartment = "";
     this.selectedRegion = "";
     this.allData = [];
@@ -54,14 +54,17 @@ class DataController {
       this.allData = await this.model.fetchAllData();
       this.populateDepartments(this.allData);
       this.populateRegions(this.allData);
+      this.populateMunicipios(this.allData); // 👈 aquí
     }
+
 
     const filteredData = this.filterData(
       this.allData,
-      this.searchTerm,
+      this.selectedMunicipio,
       this.selectedDepartment,
       this.selectedRegion
     );
+
 
     console.log("Filtrados:", filteredData); // 👈 Agrega esto
 
@@ -95,14 +98,15 @@ class DataController {
       await this.loadData();
     });
 
-    const searchInput = document.getElementById("searchInput");
-    if (searchInput) {
-      searchInput.addEventListener("input", async () => {
-        this.searchTerm = searchInput.value;
+    const municipioSelect = document.getElementById("municipioSelect");
+    if (municipioSelect) {
+      municipioSelect.addEventListener("change", async () => {
+        this.selectedMunicipio = municipioSelect.value;
         this.model.setCurrentPage(1);
         await this.loadData();
       });
     }
+
 
     const departmentSelect = document.getElementById("departmentSelect");
     if (departmentSelect) {
@@ -125,11 +129,11 @@ class DataController {
     const clearBtn = document.getElementById("clearFilters");
     if (clearBtn) {
       clearBtn.addEventListener("click", async () => {
-        this.searchTerm = "";
+        this.selectedMunicipio = "";
         this.selectedDepartment = "";
         this.selectedRegion = "";
 
-        document.getElementById("searchInput").value = "";
+        document.getElementById("municipioSelect").value = "";
         document.getElementById("departmentSelect").value = "";
         document.getElementById("regionSelect").value = "";
 
@@ -139,22 +143,34 @@ class DataController {
     }
   }
 
-  filterData(data, term, department, region) {
+  filterData(data, municipio, departamento, region) {
     return data.filter((item) => {
-      const matchesText =
-        !term ||
-        (item.municipio && item.municipio.toLowerCase().includes(term.toLowerCase())) ||
-        (item.departamento && item.departamento.toLowerCase().includes(term.toLowerCase()));
+      const matchesMunicipio =
+        !municipio || (item.municipio && item.municipio === municipio);
 
       const matchesDepartment =
-        !department || (item.departamento && item.departamento === department);
+        !departamento || (item.departamento && item.departamento === departamento);
 
       const matchesRegion =
         !region || (item.region && item.region === region);
 
-      return matchesText && matchesDepartment && matchesRegion;
+      return matchesMunicipio && matchesDepartment && matchesRegion;
     });
   }
+
+
+  populateMunicipios(data) {
+  const select = document.getElementById("municipioSelect");
+  const municipios = [...new Set(data.map((d) => d.municipio).filter(Boolean))].sort();
+
+  municipios.forEach((municipio) => {
+    const option = document.createElement("option");
+    option.value = municipio;
+    option.textContent = municipio;
+    select.appendChild(option);
+  });
+}
+
 
   populateDepartments(data) {
     const select = document.getElementById("departmentSelect");

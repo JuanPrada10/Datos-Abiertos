@@ -21,12 +21,18 @@
     >
       <h1 class="text-white font-bold text-3xl">Datos Abiertos</h1>
       <div class="mt-4 flex flex-wrap gap-4">
-        <input
+        <!-- <input
           type="text"
           id="searchInput"
           placeholder="Buscar por municipio o departamento"
           class="flex-1 min-w-[200px] rounded border border-gray-300 px-4 py-2 shadow-sm dark:border-gray-600 dark:bg-gray-900 dark:text-white"
-        />
+        /> -->
+        <select
+          id="municipioSelect"
+          class="min-w-[200px] rounded border border-gray-300 px-4 py-2 shadow-sm dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+        >
+          <option value="">-- Filtrar por municipio --</option>
+        </select>
 
         <select
           id="departmentSelect"
